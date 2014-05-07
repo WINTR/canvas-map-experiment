@@ -11,10 +11,14 @@ View  = require '../supers/View.coffee'
 
 class CanvasView extends View
 
+
    id: 'canvas'
+
+
 
    constructor: (options) ->
       super options
+
 
 
    render: ->

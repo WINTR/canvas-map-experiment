@@ -26,7 +26,6 @@ class App extends View
    canvasView: null
 
 
-
    # Kick off the application by instantiating
    # neccessary views
 
@@ -37,7 +36,6 @@ class App extends View
          $canvas: @canvasView.$el
 
       @addEventListeners()
-
       @mapView.render()
 
 
