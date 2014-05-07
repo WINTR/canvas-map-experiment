@@ -53,6 +53,12 @@ class MapView extends View
 
       @mapbox = L.mapbox
 
+
+
+   # Renders the view by creating the Map layer and inserting the
+   # canvas DOM layer into Leaflet's hiarchy
+
+   render: ->
       @mapLayer = @mapbox.map @id, MapConfig.ID
          .setView    MapConfig.INIT.location, MapConfig.INIT.zoom
          .addControl @mapbox.geocoderControl MapConfig.ID
@@ -61,12 +67,13 @@ class MapView extends View
 
 
 
-   insertCanvasLayer: ->
-      $leafletPane = $ "#map > .leaflet-map-pane > .leaflet-objects-pane"
-      $canvas      = $ '#canvas-layer'
+   # Moves the canvas layer into the Leaflet DOM
 
-      $canvas.prependTo $leafletPane
-      $canvas.css 'z-index', 5
+   insertCanvasLayer: ->
+      @$leafletPane = $ "#map > .leaflet-map-pane > .leaflet-objects-pane"
+
+      @$canvas.prependTo @$leafletPane
+      @$canvas.css 'z-index', 5
 
       @trigger Event.MAP_INITIALIZED
 

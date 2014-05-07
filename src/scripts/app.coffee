@@ -31,10 +31,14 @@ class App extends View
    # neccessary views
 
    constructor: ->
-      @mapView    = new MapView
       @canvasView = new CanvasView
 
+      @mapView = new MapView
+         $canvas: @canvasView.$el
+
       @addEventListeners()
+
+      @mapView.render()
 
 
 
@@ -48,7 +52,7 @@ class App extends View
    # Handler for map initialization events
 
    onMapInitialized: ->
-      console.log 'init!'
+      @canvasView.render()
 
 
 
