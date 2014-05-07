@@ -21,7 +21,10 @@ class View
    # @param {Object} options
 
    constructor: (options) ->
-      _.extend @, _.defaults( options = options || @defaults, @defaults || {} ), Backbone.Events
+      _.extend @, _.defaults( options = options || @defaults, @defaults || {} )
+
+      # Extend Backbones events by merging into the View prototype
+      _.extend View::, Backbone.Events
 
       if typeof @id isnt undefined and @className is undefined
          @$el = $ "##{@id}"

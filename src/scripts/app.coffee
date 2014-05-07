@@ -1,0 +1,56 @@
+###*
+ * Map Canvas application bootstrapper
+ *
+ * @author Christopher Pappas <chris@wintr.us>
+ * @date   5.7.14
+###
+
+Event      = require './events/Event.coffee'
+View       = require './supers/View.coffee'
+MapView    = require './views/MapView.coffee'
+CanvasView = require './views/CanvasView.coffee'
+
+
+class App extends View
+
+
+   # MapBox map view containing all map related functionality
+   # @type {L.MapBox}
+
+   mapView: null
+
+
+   # Canvas view containing all canvas related functionality
+   # @type {CanvasView}
+
+   canvasView: null
+
+
+
+   # Kick off the application by instantiating
+   # neccessary views
+
+   constructor: ->
+      @mapView    = new MapView
+      @canvasView = new CanvasView
+
+      @addEventListeners()
+
+
+
+   # App-wide event listeners
+
+   addEventListeners: ->
+      @listenTo @mapView, Event.MAP_INITIALIZED, @onMapInitialized
+
+
+
+   # Handler for map initialization events
+
+   onMapInitialized: ->
+      console.log 'init!'
+
+
+
+$ ->
+   new App

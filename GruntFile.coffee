@@ -66,7 +66,7 @@ module.exports = (grunt) ->
       'browserify':
 
          dev:
-            src: ["#{sources}/scripts/initialize.coffee"]
+            src: ["#{sources}/scripts/app.coffee"]
             dest: "#{output}/assets/scripts/app.js"
 
             options:
