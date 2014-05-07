@@ -7,6 +7,15 @@
 
 MapView = require './views/MapView.coffee'
 
-$ ->
 
-   new MapView
+class MapCanvasApp
+
+   # Kick off the application by instantiating
+   # neccessary views
+
+   constructor: ->
+      new MapView
+
+
+$ ->
+   new MapCanvasApp
