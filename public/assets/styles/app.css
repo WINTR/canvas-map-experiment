@@ -52,4 +52,11 @@ body {
   width: 100%;
 }
 
+#canvas-layer {
+  background: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  width: 500px;
+  height: 500px;
+}
+
 /*# sourceMappingURL=app.css.map */
