@@ -67,6 +67,17 @@ class MapView extends View
 
 
 
+
+   # EVENT HANDLERS
+   # --------------------------------------------------------------------------------
+
+
+
+
+   # PRIVATE METHODS
+   # --------------------------------------------------------------------------------
+
+
    # Moves the canvas layer into the Leaflet DOM
 
    insertCanvasLayer: ->

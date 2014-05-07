@@ -12,8 +12,15 @@ View  = require '../supers/View.coffee'
 class CanvasView extends View
 
 
+   # ID of DOM container for canvas layer
+   # @type {String}
+
    id: 'canvas-layer'
 
+
+
+   # Initialize the map layer
+   # @param {Object} options
 
    constructor: (options) ->
       super options
@@ -21,19 +28,32 @@ class CanvasView extends View
       @setupThreeJSRenderer()
 
 
+
+   # Render the view layer and begin THREE.js ticker
+
    render: ->
       @renderer.setSize @$el.width(), @$el.height()
       @$el.append @renderer.domElement
-      @tick()
+      @onTick()
 
 
 
-   tick: =>
+
+
+   # EVENT HANDLERS
+   # --------------------------------------------------------------------------------
+
+
+   # Handler for THREE.js requestAnimationFrame event loop
+
+   onTick: =>
       @cube.rotation.x += .01
       @cube.rotation.y += .01
 
       @renderer.render @scene, @camera
-      requestAnimationFrame @tick
+      requestAnimationFrame @onTick
+
+
 
 
 
@@ -41,6 +61,8 @@ class CanvasView extends View
    # PRIVATE METHODS
    # --------------------------------------------------------------------------------
 
+
+   # Setup the THREE.js scene
 
    setupThreeJSRenderer: ->
 
