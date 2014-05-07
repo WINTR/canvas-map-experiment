@@ -9,12 +9,18 @@
 MapConfig =
 
 
+   # Unique identifier for MapBox app
+   # @type {String}
+
+   ID: 'damassi.i68ol38a'
+
+
    # Map lands on Seattle during initialization
    # @type {Array}
 
    INIT:
-      location: [47.61356975397398, -122.34374999999999]
-      zoom: 9
+      location: [47.65180177401242, -122.34272003173828]
+      zoom: 11
 
 
 
