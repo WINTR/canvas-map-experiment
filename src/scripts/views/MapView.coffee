@@ -71,8 +71,6 @@ class MapView extends View
 
    insertCanvasLayer: ->
       @$leafletPane = $ "#map > .leaflet-map-pane > .leaflet-objects-pane"
-
-      console.log @$canvas
       @$canvas.prependTo @$leafletPane
       @$canvas.css 'z-index', 5
 
