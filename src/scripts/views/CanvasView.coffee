@@ -5,10 +5,19 @@
  * @date   5.7.14
 ###
 
+Event = require '../events/Event.coffee'
+View  = require '../supers/View.coffee'
 
-class CanvasView
+
+class CanvasView extends View
+
+   id: 'canvas'
 
    constructor: (options) ->
+      super options
+
+
+   render: ->
 
 
 
