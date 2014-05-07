@@ -9,7 +9,7 @@
 class CanvasView
 
    constructor: (options) ->
-      console.log 'hey now'
+
 
 
 

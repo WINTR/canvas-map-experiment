@@ -6,6 +6,7 @@
 ###
 
 MapConfig  = require '../config/MapConfig.coffee'
+Event      = require '../events/Event.coffee'
 CanvasView = require './CanvasView.coffee'
 View       = require '../supers/View.coffee'
 
@@ -67,9 +68,7 @@ class MapView extends View
       $canvas.prependTo $leafletPane
       $canvas.css 'z-index', 5
 
-      console.log @
-
-      @
+      @trigger Event.MAP_INITIALIZED
 
 
 
