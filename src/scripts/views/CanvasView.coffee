@@ -18,23 +18,7 @@ class CanvasView extends View
    constructor: (options) ->
       super options
 
-      cameraAttributes =
-         angle: 45
-         aspect: @$el.width() / @$el.height()
-         near: .1
-         far: 1000
-
-      @scene    = new THREE.Scene
-      @camera   = new THREE.PerspectiveCamera cameraAttributes.angle, cameraAttributes.aspect, cameraAttributes.near, cameraAttributes.far
-      @renderer = new THREE.WebGLRenderer alpha: true
-      @renderer.setClearColor 0x000000, 0
-      @geometry = new THREE.BoxGeometry 20, 20, 20
-      @material = new THREE.MeshBasicMaterial color: 0xFF0000, wireframe: true
-      @cube     = new THREE.Mesh @geometry, @material
-
-      @scene.add @cube
-
-      @camera.position.z = 50
+      @setupThreeJSRenderer()
 
 
    render: ->
@@ -50,6 +34,32 @@ class CanvasView extends View
 
       @renderer.render @scene, @camera
       requestAnimationFrame @tick
+
+
+
+
+   # PRIVATE METHODS
+   # --------------------------------------------------------------------------------
+
+
+   setupThreeJSRenderer: ->
+
+      cameraAttributes =
+         angle: 45
+         aspect: @$el.width() / @$el.height()
+         near: .1
+         far: 1000
+
+      @scene    = new THREE.Scene
+      @camera   = new THREE.PerspectiveCamera cameraAttributes.angle, cameraAttributes.aspect, cameraAttributes.near, cameraAttributes.far
+      @renderer = new THREE.WebGLRenderer alpha: true
+      @renderer.setClearColor 0x000000, 0
+      @geometry = new THREE.BoxGeometry 20, 20, 20
+      @material = new THREE.MeshBasicMaterial color: 0xFF0000, wireframe: true
+      @cube     = new THREE.Mesh @geometry, @material
+
+      @camera.position.z = 50
+      @scene.add @cube
 
 
 

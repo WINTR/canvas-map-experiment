@@ -47,6 +47,11 @@ class App extends View
 
 
 
+
+   # EVENT HANDLERS
+   # --------------------------------------------------------------------------------
+
+
    # Handler for map initialization events
 
    onMapInitialized: ->
