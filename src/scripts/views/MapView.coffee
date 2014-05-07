@@ -5,10 +5,18 @@
  * @date   5.7.14
 ###
 
-MapConfig = require '../config/MapConfig.coffee'
+MapConfig  = require '../config/MapConfig.coffee'
+CanvasView = require './CanvasView.coffee'
+View       = require '../supers/View.coffee'
 
 
-class MapView
+class MapView extends View
+
+
+   # ID of the view
+   # @type {String}
+
+   id: 'map'
 
 
    # Proxy L.mapbox namespace for easy access
@@ -36,10 +44,15 @@ class MapView
 
 
 
+   # Initialize the MapLayer and kick off Canvas layer repositioning
+   # @param {Object} options Default options to pass into the app
+
    constructor: (options) ->
+      super options
+
       @mapbox = L.mapbox
 
-      @mapLayer = @mapbox.map 'map', MapConfig.ID
+      @mapLayer = @mapbox.map @id, MapConfig.ID
          .setView    MapConfig.INIT.location, MapConfig.INIT.zoom
          .addControl @mapbox.geocoderControl MapConfig.ID
 
@@ -53,6 +66,12 @@ class MapView
 
       $canvas.prependTo $leafletPane
       $canvas.css 'z-index', 5
+
+      console.log @
+
+      @
+
+
 
 
 module.exports = MapView
