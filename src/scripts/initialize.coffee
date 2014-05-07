@@ -1,5 +1,12 @@
+###*
+ * Map Canvas application bootstrapper
+ *
+ * @author Christopher Pappas <chris@wintr.us>
+ * @date   5.7.14
+###
 
-HomeView = require './views/home/HomeView.coffee'
+MapView = require './views/MapView.coffee'
 
 $ ->
-   new HomeView()
+
+   new MapView
