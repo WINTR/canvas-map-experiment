@@ -7,6 +7,7 @@
 
 MapConfig  = require '../config/MapConfig.coffee'
 Event      = require '../events/Event.coffee'
+MapEvent   = require '../events/MapEvent.coffee'
 CanvasView = require './CanvasView.coffee'
 View       = require '../supers/View.coffee'
 
@@ -52,6 +53,7 @@ class MapView extends View
       super options
 
       @mapbox = L.mapbox
+      @map    = @mapbox.map
 
 
 
@@ -64,12 +66,28 @@ class MapView extends View
          .addControl @mapbox.geocoderControl MapConfig.ID
 
       @insertCanvasLayer()
+      @addEventListeners()
+
+
+
+
+   addEventListeners: ->
+      @mapLayer.on MapEvent.ZOOM_CHANGED, @onZoomChanged
 
 
 
 
    # EVENT HANDLERS
    # --------------------------------------------------------------------------------
+
+
+   # Handler for zoom change events
+   # @param {Object} event
+
+   onZoomChanged: (event) =>
+      @trigger MapEvent.ZOOM_CHANGED, @mapLayer.getZoom()
+
+
 
 
 
@@ -85,7 +103,7 @@ class MapView extends View
       @$canvas.prependTo @$leafletPane
       @$canvas.css 'z-index', 5
 
-      @trigger Event.MAP_INITIALIZED
+      @trigger MapEvent.INITIALIZED
 
 
 
