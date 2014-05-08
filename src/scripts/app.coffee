@@ -5,7 +5,7 @@
  * @date   5.7.14
 ###
 
-Event      = require './events/Event.coffee'
+MapEvent   = require './events/MapEvent.coffee'
 View       = require './supers/View.coffee'
 MapView    = require './views/MapView.coffee'
 CanvasView = require './views/CanvasView.coffee'
@@ -43,7 +43,8 @@ class App extends View
    # App-wide event listeners
 
    addEventListeners: ->
-      @listenTo @mapView, Event.MAP_INITIALIZED, @onMapInitialized
+      @listenTo @mapView, MapEvent.INITIALIZED,  @onMapInitialized
+      @listenTo @mapView, MapEvent.ZOOM_CHANGED, @onMapZoomChanged
 
 
 
@@ -56,6 +57,14 @@ class App extends View
 
    onMapInitialized: ->
       @canvasView.render()
+
+
+
+   # Handler for zoom change events
+   # @param {Number} zoom The current map zoom
+
+   onMapZoomChanged: (zoom) ->
+      @canvasView.updateZoom zoom
 
 
 

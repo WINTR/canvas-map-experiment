@@ -30,11 +30,20 @@ class CanvasView extends View
 
 
    # Render the view layer and begin THREE.js ticker
+   # @public
 
    render: ->
       @renderer.setSize @$el.width(), @$el.height()
       @$el.append @renderer.domElement
       @onTick()
+
+
+
+   # Render the view layer and begin THREE.js ticker
+   # @public
+
+   updateZoom: (zoom) ->
+      console.log zoom
 
 
 

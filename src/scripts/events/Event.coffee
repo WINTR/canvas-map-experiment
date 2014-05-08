@@ -8,10 +8,5 @@
 
 Event =
 
-   # Triggered once the MapBox map is initialized and rendered to the DOM
-   # @type {String}
-
-   MAP_INITIALIZED: 'onMapInitialized'
-
 
 module.exports = Event
