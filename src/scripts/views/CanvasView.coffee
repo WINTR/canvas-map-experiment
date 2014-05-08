@@ -32,7 +32,7 @@ class CanvasView extends View
    # @public
 
    render: ->
-      @scenes = (_.range 10).map (scene) ->
+      @scenes = (_.range 50).map (scene) ->
          scene = new ThreeScene
             position:
                x: ~~(Math.random() * 2000)

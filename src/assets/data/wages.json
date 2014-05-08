@@ -1,0 +1,359 @@
+[
+  {
+    "state":"AK",
+    "latitude": 61.3850,
+    "longitude": -152.2683,
+    "wage": 7.75,
+    "FIELD5":""
+  },
+  {
+    "state":"AL",
+    "latitude": 32.7990,
+    "longitude": -86.8073,
+    "wage": 0,
+    "FIELD5":""
+  },
+  {
+    "state":"AR",
+    "latitude": 34.9513,
+    "longitude": -92.3809,
+    "wage": 6.25,
+    "FIELD5":""
+  },
+  {
+    "state":"AZ",
+    "latitude": 33.7712,
+    "longitude": -111.3877,
+    "wage": 7.8,
+    "FIELD5":""
+  },
+  {
+    "state":"CA",
+    "latitude": 36.1700,
+    "longitude": -119.7462,
+    "wage": 8,
+    "FIELD5":""
+  },
+  {
+    "state":"CO",
+    "latitude": 39.0646,
+    "longitude": -105.3272,
+    "wage": 7.78,
+    "FIELD5":""
+  },
+  {
+    "state":"CT",
+    "latitude": 41.5834,
+    "longitude": -72.7622,
+    "wage": 8.25,
+    "FIELD5":""
+  },
+  {
+    "state":"DC",
+    "latitude": 38.8964,
+    "longitude": -77.0262,
+    "wage": 8.25,
+    "FIELD5":""
+  },
+  {
+    "state":"DE",
+    "latitude": 39.3498,
+    "longitude": -75.5148,
+    "wage": 7.25,
+    "FIELD5":""
+  },
+  {
+    "state":"FL",
+    "latitude": 27.8333,
+    "longitude": -81.7170,
+    "wage": 7.79,
+    "FIELD5":""
+  },
+  {
+    "state":"GA",
+    "latitude": 32.9866,
+    "longitude": -83.6487,
+    "wage":  5.15,
+    "FIELD5":""
+  },
+  {
+    "state":"HI",
+    "latitude": 21.1098,
+    "longitude": -157.5311,
+    "wage": 7.25,
+    "FIELD5":""
+  },
+  {
+    "state":"IA",
+    "latitude": 42.0046,
+    "longitude": -93.2140,
+    "wage": 7.25,
+    "FIELD5":""
+  },
+  {
+    "state":"ID",
+    "latitude": 44.2394,
+    "longitude": -114.5103,
+    "wage": 7.25,
+    "FIELD5":""
+  },
+  {
+    "state":"IL",
+    "latitude": 40.3363,
+    "longitude": -89.0022,
+    "wage": 8.25,
+    "FIELD5":""
+  },
+  {
+    "state":"IN",
+    "latitude": 39.8647,
+    "longitude": -86.2604,
+    "wage": 7.25,
+    "FIELD5":""
+  },
+  {
+    "state":"KS",
+    "latitude": 38.5111,
+    "longitude": -96.8005,
+    "wage": 7.25,
+    "FIELD5":""
+  },
+  {
+    "state":"KY",
+    "latitude": 37.6690,
+    "longitude": -84.6514,
+    "wage": 7.25,
+    "FIELD5":""
+  },
+  {
+    "state":"LA",
+    "latitude": 31.1801,
+    "longitude": -91.8749,
+    "wage": 0,
+    "FIELD5":""
+  },
+  {
+    "state":"MA",
+    "latitude": 42.2373,
+    "longitude": -71.5314,
+    "wage": 8,
+    "FIELD5":""
+  },
+  {
+    "state":"MD",
+    "latitude": 39.0724,
+    "longitude": -76.7902,
+    "wage": 7.25,
+    "FIELD5":""
+  },
+  {
+    "state":"ME",
+    "latitude": 44.6074,
+    "longitude": -69.3977,
+    "wage": 7.5,
+    "FIELD5":""
+  },
+  {
+    "state":"MI",
+    "latitude": 43.3504,
+    "longitude": -84.5603,
+    "wage": 7.4,
+    "FIELD5":""
+  },
+  {
+    "state":"MN",
+    "latitude": 45.7326,
+    "longitude": -93.9196,
+    "wage": 6.15,
+    "FIELD5":""
+  },
+  {
+    "state":"MO",
+    "latitude": 38.4623,
+    "longitude": -92.3020,
+    "wage": 7.35,
+    "FIELD5":""
+  },
+  {
+    "state":"MS",
+    "latitude": 32.7673,
+    "longitude": -89.6812,
+    "wage": 0,
+    "FIELD5":""
+  },
+  {
+    "state":"MT",
+    "latitude": 46.9048,
+    "longitude": -110.3261,
+    "wage": 7.80,
+    "FIELD5":""
+  },
+  {
+    "state":"NC",
+    "latitude": 35.6411,
+    "longitude": -79.8431,
+    "wage": 7.25,
+    "FIELD5":""
+  },
+  {
+    "state":"ND",
+    "latitude": 47.5362,
+    "longitude": -99.7930,
+    "wage": 7.25,
+    "FIELD5":""
+  },
+  {
+    "state":"NE",
+    "latitude": 41.1289,
+    "longitude": -98.2883,
+    "wage": 7.25,
+    "FIELD5":""
+  },
+  {
+    "state":"NH",
+    "latitude": 43.4108,
+    "longitude": -71.5653,
+    "wage": 7.25,
+    "FIELD5":""
+  },
+  {
+    "state":"NJ",
+    "latitude": 40.3140,
+    "longitude": -74.5089,
+    "wage": 7.25,
+    "FIELD5":""
+  },
+  {
+    "state":"NM",
+    "latitude": 34.8375,
+    "longitude": -106.2371,
+    "wage": 7.5,
+    "FIELD5":""
+  },
+  {
+    "state":"NV",
+    "latitude": 38.4199,
+    "longitude": -117.1219,
+    "wage": 8.25,
+    "FIELD5":""
+  },
+  {
+    "state":"NY",
+    "latitude": 42.1497,
+    "longitude": -74.9384,
+    "wage": 7.25,
+    "FIELD5":""
+  },
+  {
+    "state":"OH",
+    "latitude": 40.3736,
+    "longitude": -82.7755,
+    "wage": 7.85,
+    "FIELD5":""
+  },
+  {
+    "state":"OK",
+    "latitude": 35.5376,
+    "longitude": -96.9247,
+    "wage": 7.25,
+    "FIELD5":""
+  },
+  {
+    "state":"OR",
+    "latitude": 44.5672,
+    "longitude": -122.1269,
+    "wage": 8.95,
+    "FIELD5":""
+  },
+  {
+    "state":"PA",
+    "latitude": 40.5773,
+    "longitude": -77.2640,
+    "wage": 7.25,
+    "FIELD5":""
+  },
+  {
+    "state":"RI",
+    "latitude": 41.6772,
+    "longitude": -71.5101,
+    "wage": 7.75,
+    "FIELD5":""
+  },
+  {
+    "state":"SC",
+    "latitude": 33.8191,
+    "longitude": -80.9066,
+    "wage": 0,
+    "FIELD5":""
+  },
+  {
+    "state":"SD",
+    "latitude": 44.2853,
+    "longitude": -99.4632,
+    "wage": 7.25,
+    "FIELD5":""
+  },
+  {
+    "state":"TN",
+    "latitude": 35.7449,
+    "longitude": -86.7489,
+    "wage": 0,
+    "FIELD5":""
+  },
+  {
+    "state":"TX",
+    "latitude": 31.1060,
+    "longitude": -97.6475,
+    "wage": 7.25,
+    "FIELD5":""
+  },
+  {
+    "state":"UT",
+    "latitude": 40.1135,
+    "longitude": -111.8535,
+    "wage": 7.25,
+    "FIELD5":""
+  },
+  {
+    "state":"VA",
+    "latitude": 37.7680,
+    "longitude": -78.2057,
+    "wage": 7.25,
+    "FIELD5":""
+  },
+  {
+    "state":"VT",
+    "latitude": 44.0407,
+    "longitude": -72.7093,
+    "wage": 8.6,
+    "FIELD5":""
+  },
+  {
+    "state":"WA",
+    "latitude": 47.3917,
+    "longitude": -121.5708,
+    "wage": 9.19,
+    "FIELD5":""
+  },
+  {
+    "state":"WI",
+    "latitude": 44.2563,
+    "longitude": -89.6385,
+    "wage": 7.25,
+    "FIELD5":""
+  },
+  {
+    "state":"WV",
+    "latitude": 38.4680,
+    "longitude": -80.9696,
+    "wage": 7.25,
+    "FIELD5":""
+  },
+  {
+    "state":"WY",
+    "latitude": 42.7475,
+    "longitude": -107.2085,
+    "wage": 5.15,
+    "FIELD5":""
+  }
+]

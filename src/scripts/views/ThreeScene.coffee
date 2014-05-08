@@ -78,7 +78,7 @@ class ThreeScene extends View
 
       @scene    = new THREE.Scene
       @camera   = new THREE.PerspectiveCamera cameraAttributes.angle, cameraAttributes.aspect, cameraAttributes.near, cameraAttributes.far
-      @renderer = new THREE.WebGLRenderer alpha: true
+      @renderer = new THREE.CanvasRenderer alpha: true
       @geometry = new THREE.BoxGeometry 10, 10, 10
       @material = new THREE.MeshBasicMaterial color: 0xFF0000, wireframe: true
       @cube     = new THREE.Mesh @geometry, @material
