@@ -26,11 +26,20 @@ class App extends View
    canvasView: null
 
 
+   # JSON Data of wages and lat, lng by state
+   # @type {Array}
+
+   wageData: null
+
+
    # Kick off the application by instantiating
    # neccessary views
 
-   constructor: ->
+   constructor: (options) ->
+      super options
+
       @canvasView = new CanvasView
+         wageData: @wageData
 
       @mapView = new MapView
          $canvas: @canvasView.$el
@@ -70,4 +79,6 @@ class App extends View
 
 
 $ ->
-   new App
+   $.getJSON 'assets/data/wages.json', (wageData) ->
+      new App
+         wageData: wageData

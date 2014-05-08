@@ -44,12 +44,18 @@ class CanvasView extends View
 
 
 
-   update: (canvasOverlay, params) ->
+   update: (canvasOverlay, params) =>
       ctx = params.canvas.getContext '2d'
       ctx.clearRect 0, 0, params.canvas.width, params.canvas.height
       ctx.fillStyle = "rgba(255,116,0, 0.2)"
 
-      #if (params.bounds.contains([d[0], d[1]]))
+      @wageData.forEach (state, index) =>
+         point = canvasOverlay._map.latLngToContainerPoint [state.latitude, state.longitude]
+
+         if @scenes and index < @wageData.length - 1
+            scene = @scenes[index]
+
+            TweenMax.set scene.$el, x: point.x, y: point.y
 
 
 
