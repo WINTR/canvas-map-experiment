@@ -89,7 +89,7 @@ class CanvasView extends View
       @camera   = new THREE.PerspectiveCamera cameraAttributes.angle, cameraAttributes.aspect, cameraAttributes.near, cameraAttributes.far
       @renderer = new THREE.WebGLRenderer alpha: true
       @renderer.setClearColor 0x000000, 0
-      @geometry = new THREE.BoxGeometry 20, 20, 20
+      @geometry = new THREE.BoxGeometry 10, 10, 10
       @material = new THREE.MeshBasicMaterial color: 0xFF0000, wireframe: true
       @cube     = new THREE.Mesh @geometry, @material
 
