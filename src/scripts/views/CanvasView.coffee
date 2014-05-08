@@ -5,8 +5,9 @@
  * @date   5.7.14
 ###
 
-Event = require '../events/Event.coffee'
-View  = require '../supers/View.coffee'
+Event      = require '../events/Event.coffee'
+View       = require '../supers/View.coffee'
+ThreeScene = require './ThreeScene.coffee'
 
 
 class CanvasView extends View
@@ -25,19 +26,20 @@ class CanvasView extends View
    constructor: (options) ->
       super options
 
-      @setupThreeJSRenderer()
-
 
 
    # Render the view layer and begin THREE.js ticker
    # @public
 
    render: ->
-      @$el.width window.innerWidth
-      @$el.height @$el.width()
+      @scenes = (_.range 10).map (scene) ->
+         scene = new ThreeScene
+            position:
+               x: ~~(Math.random() * 2000)
+               y: ~~(Math.random() * 2000)
 
-      @renderer.setSize @$el.width(), @$el.height()
-      @$el.append @renderer.domElement
+      # Append to dom and start ticker
+      @scenes.forEach (scene) => @$el.append scene.render().$el
       @onTick()
 
 
@@ -47,8 +49,6 @@ class CanvasView extends View
 
    updateZoom: (zoom) ->
       console.log zoom
-      #@cube.scale.set zoom, zoom, zoom
-
 
 
 
@@ -59,11 +59,8 @@ class CanvasView extends View
 
    # Handler for THREE.js requestAnimationFrame event loop
 
-   onTick: =>
-      @cube.rotation.x += .01
-      @cube.rotation.y += .01
-
-      @renderer.render @scene, @camera
+   onTick: (event) =>
+      @scenes.forEach (scene) -> scene.tick()
       requestAnimationFrame @onTick
 
 
@@ -74,27 +71,6 @@ class CanvasView extends View
    # PRIVATE METHODS
    # --------------------------------------------------------------------------------
 
-
-   # Setup the THREE.js scene
-
-   setupThreeJSRenderer: ->
-
-      cameraAttributes =
-         angle: 45
-         aspect: @$el.width() / @$el.height()
-         near: .1
-         far: 1000
-
-      @scene    = new THREE.Scene
-      @camera   = new THREE.PerspectiveCamera cameraAttributes.angle, cameraAttributes.aspect, cameraAttributes.near, cameraAttributes.far
-      @renderer = new THREE.WebGLRenderer alpha: true
-      @renderer.setClearColor 0x000000, 0
-      @geometry = new THREE.BoxGeometry 10, 10, 10
-      @material = new THREE.MeshBasicMaterial color: 0xFF0000, wireframe: true
-      @cube     = new THREE.Mesh @geometry, @material
-
-      @camera.position.z = 50
-      @scene.add @cube
 
 
 

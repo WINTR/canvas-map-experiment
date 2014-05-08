@@ -119,6 +119,7 @@ module.exports = (grunt) ->
                "#{vendor}/backbone.js"
                "#{vendor}/greensock.js"
                "#{vendor}/threejs.js"
+               "#{vendor}/L.CanvasOverlay.js"
             ]
 
             dest: "#{output}/assets/scripts/vendor.js"
