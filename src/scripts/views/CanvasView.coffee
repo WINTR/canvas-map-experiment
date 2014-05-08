@@ -33,6 +33,9 @@ class CanvasView extends View
    # @public
 
    render: ->
+      @$el.width window.innerWidth
+      @$el.height @$el.width()
+
       @renderer.setSize @$el.width(), @$el.height()
       @$el.append @renderer.domElement
       @onTick()
@@ -44,6 +47,7 @@ class CanvasView extends View
 
    updateZoom: (zoom) ->
       console.log zoom
+      #@cube.scale.set zoom, zoom, zoom
 
 
 
