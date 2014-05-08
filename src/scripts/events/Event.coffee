@@ -8,7 +8,7 @@
 
 Event =
 
-   TEST: 'onTest'
+   TEST: 'onTesttt'
 
 
 module.exports = Event
