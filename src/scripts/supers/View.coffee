@@ -31,8 +31,14 @@ class View
       if typeof @id isnt undefined and @className is undefined
          @$el = $ "##{@id}"
 
+         if @$el.length is 0
+            @$el = $("<div id=#{@id} />")
+
       else if @className isnt undefined
          @$el = $ ".#{@className}"
+
+         if @$el.length is 0
+            @$el = $("<div class=#{@className} />")
 
 
 
