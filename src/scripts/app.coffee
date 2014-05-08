@@ -34,6 +34,7 @@ class App extends View
 
       @mapView = new MapView
          $canvas: @canvasView.$el
+         canvasUpdateMethod: @canvasView.update
 
       @addEventListeners()
       @mapView.render()

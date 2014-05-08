@@ -44,6 +44,16 @@ class CanvasView extends View
 
 
 
+   update: (canvasOverlay, params) ->
+      ctx = params.canvas.getContext '2d'
+      ctx.clearRect 0, 0, params.canvas.width, params.canvas.height
+      ctx.fillStyle = "rgba(255,116,0, 0.2)"
+
+      #if (params.bounds.contains([d[0], d[1]]))
+
+
+
+
    # Render the view layer and begin THREE.js ticker
    # @public
 

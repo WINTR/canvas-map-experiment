@@ -65,6 +65,11 @@ class MapView extends View
          .setView    MapConfig.INIT.location, MapConfig.INIT.zoom
          .addControl @mapbox.geocoderControl MapConfig.ID
 
+      # Add a canvas overlay and pass in an update method
+      L.canvasOverlay()
+         .drawing @canvasUpdateMethod
+         .addTo @mapLayer
+
       @insertCanvasLayer()
       @addEventListeners()
 
