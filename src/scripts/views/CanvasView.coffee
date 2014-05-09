@@ -55,9 +55,10 @@ class CanvasView extends View
          if @scenes and index < @wageData.length - 1
             scene = @scenes[index]
 
-            TweenMax.set scene.$el,
+            TweenMax.to scene.$el, .6,
                x: point.x - offset.left - (MapConfig.CANVAS_SIZE * .5)
                y: point.y - offset.top - (MapConfig.CANVAS_SIZE * .5)
+               ease: Expo.easeOut
 
 
 
