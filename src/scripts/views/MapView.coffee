@@ -69,6 +69,7 @@ class MapView extends View
       L.canvasOverlay()
          .drawing @canvasUpdateMethod
          .addTo @mapLayer
+         .redraw()
 
       @insertCanvasLayer()
       @addEventListeners()

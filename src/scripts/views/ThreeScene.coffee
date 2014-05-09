@@ -47,6 +47,12 @@ class ThreeScene extends View
 
 
 
+   updateCameraAngle: (x, y) ->
+      @camera.position.x = x
+      @camera.position.y = y
+
+
+
 
    setupThreeJSRenderer: ->
       cameraAttributes =

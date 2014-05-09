@@ -91,10 +91,10 @@ class CanvasView extends View
          # sway multiples for perspective camera angle
 
          dist =
-            x: (window.innerWidth  * .5) - (offset.left + (MapConfig.CANVAS_SIZE * .5))
-            y: (window.innerHeight * .5) - (offset.top  + (MapConfig.CANVAS_SIZE * .5))
+            x: ((window.innerWidth  * .5) - (offset.left + (MapConfig.CANVAS_SIZE * .5))) * .01
+            y: ((window.innerHeight * .5) - (offset.top  + (MapConfig.CANVAS_SIZE * .5))) * .01
 
-         console.log dist.x, dist.y
+         scene.updateCameraAngle( dist.x, -dist.y )
 
 
 

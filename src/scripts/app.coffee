@@ -107,6 +107,6 @@ class App extends View
 # Kick off App and load external wage data
 
 $ ->
-   $.getJSON 'assets/data/wages-wa.json', (wageData) ->
+   $.getJSON 'assets/data/wages.json', (wageData) ->
       new App
          wageData: wageData
