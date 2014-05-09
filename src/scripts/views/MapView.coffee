@@ -61,11 +61,9 @@ class MapView extends View
    # canvas DOM layer into Leaflet's hiarchy
 
    render: ->
-      @mapLayer = @mapbox.map @id, MapConfig.ID
+      @mapLayer = @mapbox.map @id, MapConfig.ID, MapConfig.MAP_OPTIONS
          .setView    MapConfig.INIT.location, MapConfig.INIT.zoom
          .addControl @mapbox.geocoderControl MapConfig.ID
-
-      $('.leaflet-control-grid').remove()
 
       # Add a canvas overlay and pass in an update method
       L.canvasOverlay()

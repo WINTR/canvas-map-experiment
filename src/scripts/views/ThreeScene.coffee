@@ -21,6 +21,11 @@ class ThreeScene extends View
 
 
 
+   events:
+      'click': 'onClick'
+
+
+
    constructor: (options) ->
       super options
 
@@ -63,7 +68,7 @@ class ThreeScene extends View
 
 
    tick: ->
-      @cube.rotation.y += .1 if @cube
+      #@cube.rotation.y += .1 if @cube
       @renderer.render @scene, @camera
 
 
@@ -76,8 +81,28 @@ class ThreeScene extends View
 
 
 
+
+
+   # EVENT HANDLERS
+   # --------------------------------------------------------------------------------
+
+
+   onClick: (event) =>
+      console.log @wage.wage
+
+
+
+
+
+
+
+   # PRIVATE METHODS
+   # --------------------------------------------------------------------------------
+
+
+
    setupThreeJSRenderer: ->
-      height = if @wage.wage isnt 0 then @wage.wage * 3 else 2
+      @height = if @wage.wage isnt 0 then @wage.wage * 3 else 2
 
       cameraAttributes =
          angle: 45
@@ -91,18 +116,8 @@ class ThreeScene extends View
       @renderer = new THREE.CanvasRenderer alpha: true
 
 
-      @geometry = new THREE.BoxGeometry 2, height, 2, 2, 2, 2
-
-      # material
-      texture  = new THREE.Texture WintrGradient.generate WintrGradient.yellowGreen()
-      texture.needsUpdate = true
-
-      material = new THREE.MeshBasicMaterial( { map: texture, overdraw: 0.5 } )
-      @cube = new THREE.Mesh( @geometry, material )
-      @cube.rotation.x = 20
-      @cube.rotation.y = 20
-
-      @scene.add @cube
+      @scene.add @returnRandomColorCube()
+      #@scene.add @returnGradientCube()
 
       # Update view
       @renderer.setClearColor 0x000000, 0
@@ -110,22 +125,15 @@ class ThreeScene extends View
 
 
 
-   generateTexture: (startHex, stopHex) ->
-      size = 512
-      canvas = document.createElement 'canvas'
-      canvas.width = size
-      canvas.height = size
 
-      context = canvas.getContext '2d'
+   returnGradient: (wage) =>
+      if wage < 5                 then return WintrGradient.generate WintrGradient.yellowPink()
+      if wage < 6   and wage > 5  then return WintrGradient.generate WintrGradient.yellowPink()
+      if wage < 7   and wage > 6  then return WintrGradient.generate WintrGradient.yellowAqua()
+      if wage < 8   and wage > 7  then return WintrGradient.generate WintrGradient.yellowPink()
+      if wage < 9   and wage > 8  then return WintrGradient.generate WintrGradient.orangePink()
+      if wage < 25  and wage > 9  then return WintrGradient.generate WintrGradient.yellowGreen()
 
-      context.rect 0, 0, size, size
-      gradient = context.createLinearGradient 0, 0, size, size
-      gradient.addColorStop(0, startHex) # light blue
-      gradient.addColorStop(1, stopHex) # dark blue
-      context.fillStyle = gradient
-      context.fill()
-
-      canvas
 
 
 
@@ -141,20 +149,36 @@ class ThreeScene extends View
 
 
    returnRandomColorCube: ->
-      # # Object parameters
-      # @geometry = new THREE.BoxGeometry 2, height, 2
+      @geometry = new THREE.BoxGeometry 2, @height, 2
 
-      # for i in [0..@geometry.faces.length - 1] by +2
-      #    hex = Math.random() * 0xffffff
-      #    @geometry.faces[i].color.setHex hex
-      #    @geometry.faces[i + 1].color.setHex hex
+      for i in [0..@geometry.faces.length - 1] by +2
+         hex = Math.random() * 0xffffff
+         @geometry.faces[i].color.setHex hex
+         @geometry.faces[i + 1].color.setHex hex
 
 
-      # @material = new THREE.MeshBasicMaterial vertexColors: THREE.FaceColors, overdraw: 0.5
-      # @cube     = new THREE.Mesh @geometry, @material
-      # @cube.rotation.x = 20
-      # @cube.rotation.y = 20
-      # @scene.add @cube
+      @material = new THREE.MeshBasicMaterial vertexColors: THREE.FaceColors, overdraw: 0.5
+      @cube = new THREE.Mesh @geometry, @material
+      @cube.rotation.x = 20
+      @cube.rotation.y = 20
+
+      return @cube
+
+
+
+
+   returnGradientCube: ->
+      @geometry = new THREE.BoxGeometry 2, @height, 2, 2, 2, 2
+
+      texture  = new THREE.Texture @returnGradient @wage.wage
+      texture.needsUpdate = true
+
+      material = new THREE.MeshBasicMaterial( { map: texture, overdraw: 0.5 } )
+      @cube = new THREE.Mesh( @geometry, material )
+      @cube.rotation.x = 20
+      @cube.rotation.y = 20
+
+      @cube
 
 
 

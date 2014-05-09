@@ -30,6 +30,7 @@ body {
   line-height: 20px;
   color: white;
   font-family: Helvetica, Arial, sans-serif;
+  background: #001420;
 }
 
 strong {
@@ -46,6 +47,7 @@ body {
 }
 
 #map {
+  background: #001420;
   position: absolute;
   top: 0;
   bottom: 0;

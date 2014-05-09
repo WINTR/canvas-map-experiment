@@ -9,10 +9,15 @@
 MapConfig =
 
 
+   # Width of each individual canvas square
+   # @type {Number}
+
+   CANVAS_SIZE: 300
+
    # Unique identifier for MapBox app
    # @type {String}
 
-   ID: 'damassi.i6mpgfa0'
+   ID: 'damassi.control-room'
 
 
    # Map lands on Seattle during initialization
@@ -23,10 +28,12 @@ MapConfig =
       zoom: 5
 
 
-   # Width of each individual canvas square
-   # @type {Number}
+   MAP_OPTIONS:
+      minZoom: 5
+      maxZoom: 9
 
-   CANVAS_SIZE: 300
+
+
 
 
 

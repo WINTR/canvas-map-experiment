@@ -5,9 +5,9 @@ Only single elements. No classes or ids.
 
 ///////////////////////////////////////////////////// */
 
-* { 
+* {
   -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box; 
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   // *behavior: url(/scripts/boxsizing.htc); // <--- Use this for <= IE7 https://github.com/Schepp/box-sizing-polyfill
 }
@@ -22,6 +22,7 @@ body {
   line-height: 20px;
   color: $base-color;
   font-family: $body-font;
+  background: #001420;
 }
 
 h1, h2, h3, h4, h5 {}
