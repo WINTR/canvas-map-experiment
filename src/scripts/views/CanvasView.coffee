@@ -25,8 +25,9 @@ class CanvasView extends View
 
    render: ->
 
-      @scenes = (_.range @wageData.length).map (scene) ->
+      @scenes = (_.range @wageData.length).map (scene, index) =>
          scene = new ThreeScene
+            wage: @wageData[index]
 
       # Append to dom and start ticker
       @scenes.forEach (scene) => @$el.append scene.render().$el
@@ -52,6 +53,23 @@ class CanvasView extends View
                x: x - left - (MapConfig.CANVAS_SIZE * .5)
                y: y - top  - (MapConfig.CANVAS_SIZE * .5)
                ease: Expo.easeOut
+
+
+
+
+   updateCameraAngle: =>
+      @scenes.forEach (scene, index) =>
+         scene  = @scenes[index]
+         offset = scene.$el.offset()
+
+         # Compute the distance to the center of the window.  Used to create
+         # sway multiples for perspective camera angle
+
+         dist =
+            x: ((window.innerWidth  * .5) - (offset.left + (MapConfig.CANVAS_SIZE * .5))) * .01
+            y: ((window.innerHeight * .5) - (offset.top  + (MapConfig.CANVAS_SIZE * .5))) * .01
+
+         scene.updateCameraAngle( dist.x, -dist.y )
 
 
 
@@ -83,18 +101,7 @@ class CanvasView extends View
 
 
    onMapDrag: ->
-      @scenes.forEach (scene, index) =>
-         scene  = @scenes[index]
-         offset = scene.$el.offset()
-
-         # Compute the distance to the center of the window.  Used to create
-         # sway multiples for perspective camera angle
-
-         dist =
-            x: ((window.innerWidth  * .5) - (offset.left + (MapConfig.CANVAS_SIZE * .5))) * .01
-            y: ((window.innerHeight * .5) - (offset.top  + (MapConfig.CANVAS_SIZE * .5))) * .01
-
-         scene.updateCameraAngle( dist.x, -dist.y )
+      @updateCameraAngle()
 
 
 

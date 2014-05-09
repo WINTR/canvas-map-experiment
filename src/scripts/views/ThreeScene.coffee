@@ -23,6 +23,8 @@ class ThreeScene extends View
    constructor: (options) ->
       super options
 
+      console.log @wage
+
       @setupThreeJSRenderer()
 
 
@@ -31,9 +33,30 @@ class ThreeScene extends View
    render: ->
       size = MapConfig.CANVAS_SIZE
 
+      # Add Scene canvas to the dom
       _.defer =>
+
          @renderer.setSize size, size
          @$el.append @renderer.domElement
+
+         # Animate in the cube
+         _.delay =>
+
+            time  = 1
+            ease  = Expo.easeInOut
+            delay = Math.random() * 5
+
+            return
+
+            TweenMax.fromTo @cube.scale, time, y: .1,
+               y: 1
+               delay: delay
+               ease: ease
+
+            TweenMax.fromTo @cube.rotation, time, x: 19.4,
+               x: 20
+               delay: delay
+               ease: ease
 
       @
 
@@ -59,7 +82,7 @@ class ThreeScene extends View
          angle: 45
          aspect: MapConfig.CANVAS_SIZE / MapConfig.CANVAS_SIZE
          near: .1
-         far: 1000
+         far: 100
 
       # Scene parameters
       @scene    = new THREE.Scene
@@ -67,7 +90,8 @@ class ThreeScene extends View
       @renderer = new THREE.CanvasRenderer alpha: true
 
       # Object parameters
-      @geometry = new THREE.BoxGeometry 2, 30, 2
+      height = if @wage.wage isnt 0 then @wage.wage * 3 else 2
+      @geometry = new THREE.BoxGeometry 2, height, 2
 
       for i in [0..@geometry.faces.length - 1] by +2
          hex = Math.random() * 0xffffff
