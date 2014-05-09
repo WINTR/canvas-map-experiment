@@ -21,7 +21,6 @@ class CanvasView extends View
 
 
 
-
    # Instantiate Three.js scenes based upon number of datapoints in the JSON
 
    render: ->
@@ -31,7 +30,6 @@ class CanvasView extends View
       # Append to dom and start ticker
       @scenes.forEach (scene) => @$el.append scene.render().$el
       @onTick()
-
 
 
 
@@ -53,7 +51,6 @@ class CanvasView extends View
                x: point.x - offset.left - (MapConfig.CANVAS_SIZE * .5)
                y: point.y - offset.top - (MapConfig.CANVAS_SIZE * .5)
                ease: Expo.easeOut
-
 
 
 
