@@ -84,11 +84,17 @@ class CanvasView extends View
 
    onMapDrag: ->
       @scenes.forEach (scene, index) =>
-         scene = @scenes[index]
+         scene  = @scenes[index]
+         offset = scene.$el.offset()
 
-         {left, top} = scene.$el.offset()
+         # Compute the distance to the center of the window.  Used to create
+         # sway multiples for perspective camera angle
 
-         console.log left, top
+         dist =
+            x: (window.innerWidth  * .5) - (offset.left + (MapConfig.CANVAS_SIZE * .5))
+            y: (window.innerHeight * .5) - (offset.top  + (MapConfig.CANVAS_SIZE * .5))
+
+         console.log dist.x, dist.y
 
 
 
