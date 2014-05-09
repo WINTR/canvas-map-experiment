@@ -9,6 +9,7 @@ WintrGradient = require '../utils/WintrGradient.coffee'
 MapConfig     = require '../config/MapConfig.coffee'
 Event         = require '../events/Event.coffee'
 View          = require '../supers/View.coffee'
+template      = require './templates/scene-template.hbs'
 
 
 class ThreeScene extends View
@@ -42,6 +43,8 @@ class ThreeScene extends View
 
          @renderer.setSize size, size
          @$el.append @renderer.domElement
+         @$el.append template
+            wage: "$#{@wage.wage}"
 
          # Animate in the cube
          _.delay =>
@@ -105,7 +108,7 @@ class ThreeScene extends View
       @height = if @wage.wage isnt 0 then @wage.wage * 3 else 2
 
       cameraAttributes =
-         angle: 45
+         angle: 75
          aspect: MapConfig.CANVAS_SIZE / MapConfig.CANVAS_SIZE
          near: .1
          far: 100
@@ -178,7 +181,7 @@ class ThreeScene extends View
       @cube.rotation.x = 20
       @cube.rotation.y = 20
 
-      @cube
+      return @cube
 
 
 

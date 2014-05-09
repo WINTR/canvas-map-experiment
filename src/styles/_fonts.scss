@@ -1,0 +1,118 @@
+/* /////////////////////////////////////////////////////
+
+FONT DEFINITIONS
+
+///////////////////////////////////////////////////// */
+
+.font-book {
+  font-family: 'ITC Franklin Gothic Std Book';
+  font-weight: normal;
+}
+
+.font-medium {
+  font-family: 'ITC Franklin Gothic Std Med';
+  font-weight: normal;
+}
+
+.font-heavy {
+  font-family: 'ITC Franklin Gothic Std Heavy';
+  font-weight: normal;
+}
+
+.font-std {
+  font-family: 'Franklin Gothic Std Condensed';
+  font-weight: normal;
+}
+
+.font-light {
+  font-family: 'ITC Franklin Gothic Std MedCd';
+  font-weight: normal;
+}
+
+
+/* Webfont Includes
+--------------------------------------------- */
+
+@font-face {
+  font-family: 'Franklin Gothic Std Condensed';
+  src: url("#{$fonts}/FranklinGothicStd-Condensed.eot"); /* IE9 Compat Modes */
+  src: url("#{$fonts}/FranklinGothicStd-Condensed.eot?#iefix") format('embedded-opentype'), /* IE6-IE8 */
+       url("#{$fonts}/FranklinGothicStd-Condensed.woff") format('woff'), /* Modern Browsers */
+       url("#{$fonts}/FranklinGothicStd-Condensed.ttf")  format('truetype'), /* Safari, Android, iOS */
+       url("#{$fonts}/FranklinGothicStd-Condensed.svg#5267dc70dd89dceb753def333e835d10") format('svg'); /* Legacy iOS */
+
+  font-style:   normal;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'ITC Franklin Gothic Std Bk Cd';
+  src: url("#{$fonts}/ITCFranklinGothicStd-BkCd.eot"); /* IE9 Compat Modes */
+  src: url("#{$fonts}/ITCFranklinGothicStd-BkCd.eot?#iefix") format('embedded-opentype'), /* IE6-IE8 */
+       url("#{$fonts}/ITCFranklinGothicStd-BkCd.woff") format('woff'), /* Modern Browsers */
+       url("#{$fonts}/ITCFranklinGothicStd-BkCd.ttf")  format('truetype'), /* Safari, Android, iOS */
+       url("#{$fonts}/ITCFranklinGothicStd-BkCd.svg#9f6a3eef2ea35dd99b0d0ec2ae9a10d1") format('svg'); /* Legacy iOS */
+
+  font-style:   normal;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'ITC Franklin Gothic Std Book';
+  src: url("#{$fonts}/ITCFranklinGothicStd-Demi.eot"); /* IE9 Compat Modes */
+  src: url("#{$fonts}/ITCFranklinGothicStd-Demi.eot?#iefix") format('embedded-opentype'), /* IE6-IE8 */
+       url("#{$fonts}/ITCFranklinGothicStd-Demi.woff") format('woff'), /* Modern Browsers */
+       url("#{$fonts}/ITCFranklinGothicStd-Demi.ttf")  format('truetype'), /* Safari, Android, iOS */
+       url("#{$fonts}/ITCFranklinGothicStd-Demi.svg#77ad3f4d5509c1fb9998922b27a61a32") format('svg'); /* Legacy iOS */
+
+  font-style:   normal;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'ITC Franklin Gothic Std Bk Cd';
+  src: url("#{$fonts}/ITCFranklinGothicStd-DmCd.eot"); /* IE9 Compat Modes */
+  src: url("#{$fonts}/ITCFranklinGothicStd-DmCd.eot?#iefix") format('embedded-opentype'), /* IE6-IE8 */
+       url("#{$fonts}/ITCFranklinGothicStd-DmCd.woff") format('woff'), /* Modern Browsers */
+       url("#{$fonts}/ITCFranklinGothicStd-DmCd.ttf")  format('truetype'), /* Safari, Android, iOS */
+       url("#{$fonts}/ITCFranklinGothicStd-DmCd.svg#3597b9d7f0c7dc018dbd1f68563157d3") format('svg'); /* Legacy iOS */
+
+  font-style:   normal;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'ITC Franklin Gothic Std Med';
+  src: url("#{$fonts}/ITCFranklinGothicStd-Hvy.eot"); /* IE9 Compat Modes */
+  src: url("#{$fonts}/ITCFranklinGothicStd-Hvy.eot?#iefix") format('embedded-opentype'), /* IE6-IE8 */
+       url("#{$fonts}/ITCFranklinGothicStd-Hvy.woff") format('woff'), /* Modern Browsers */
+       url("#{$fonts}/ITCFranklinGothicStd-Hvy.ttf")  format('truetype'), /* Safari, Android, iOS */
+       url("#{$fonts}/ITCFranklinGothicStd-Hvy.svg#aaa7723aafaad811b0fffde8f0020db2") format('svg'); /* Legacy iOS */
+
+  font-style:   normal;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'ITC Franklin Gothic Std MedCd';
+  src: url("#{$fonts}/ITCFranklinGothicStd-MdCd.eot"); /* IE9 Compat Modes */
+  src: url("#{$fonts}/ITCFranklinGothicStd-MdCd.eot?#iefix") format('embedded-opentype'), /* IE6-IE8 */
+       url("#{$fonts}/ITCFranklinGothicStd-MdCd.woff") format('woff'), /* Modern Browsers */
+       url("#{$fonts}/ITCFranklinGothicStd-MdCd.ttf")  format('truetype'), /* Safari, Android, iOS */
+       url("#{$fonts}/ITCFranklinGothicStd-MdCd.svg#49a5010decbdeeab82fe5467a28e772e") format('svg'); /* Legacy iOS */
+
+  font-style:   normal;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'ITC Franklin Gothic Std Heavy';
+  src: url("#{$fonts}/ITCFranklinGothicStd-Hvy.eot"); /* IE9 Compat Modes */
+  src: url("#{$fonts}/ITCFranklinGothicStd-Hvy.eot?#iefix") format('embedded-opentype'), /* IE6-IE8 */
+       url("#{$fonts}/ITCFranklinGothicStd-Hvy.woff") format('woff'), /* Modern Browsers */
+       url("#{$fonts}/ITCFranklinGothicStd-Hvy.ttf")  format('truetype'), /* Safari, Android, iOS */
+       url("#{$fonts}/ITCFranklinGothicStd-Hvy.svg#49a5010decbdeeab82fe5467a28e772e") format('svg'); /* Legacy iOS */
+
+  font-style:   normal;
+  font-weight:  400;
+}

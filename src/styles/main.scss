@@ -9,6 +9,7 @@ chris@wintr.us
 /* Variables
 --------------------------------------------- */
 
+$fonts: '../webfonts';
 $base-color: white;
 $body-font:  Helvetica, Arial, sans-serif;
 
@@ -16,5 +17,6 @@ $body-font:  Helvetica, Arial, sans-serif;
 /* Imports
 --------------------------------------------- */
 
+@import "fonts";
 @import "base";
 @import "map-experiment";

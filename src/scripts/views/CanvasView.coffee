@@ -25,13 +25,26 @@ class CanvasView extends View
 
    render: ->
 
+      # Create scenes
       @scenes = (_.range @wageData.length).map (scene, index) =>
          scene = new ThreeScene
             wage: @wageData[index]
 
       # Append to dom and start ticker
-      @scenes.forEach (scene) => @$el.append scene.render().$el
-      @onTick()
+      @scenes.forEach (scene) =>
+         @$el.append scene.render().$el
+
+      # Wait for appending and then sort / render
+      _.defer =>
+
+         sorted = _.sortBy @scenes, (a, b) ->
+            return a.$el.position().top
+
+         sorted.forEach (scene, index) ->
+            scene.$el.css 'z-index', index
+
+         @onTick()
+
 
 
 
@@ -102,6 +115,7 @@ class CanvasView extends View
 
    onMapDrag: ->
       @updateCameraAngle()
+      @scenes.forEach (scene) -> scene.tick()
 
 
 

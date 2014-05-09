@@ -12,7 +12,7 @@ MapConfig =
    # Width of each individual canvas square
    # @type {Number}
 
-   CANVAS_SIZE: 300
+   CANVAS_SIZE: 600
 
    # Unique identifier for MapBox app
    # @type {String}
