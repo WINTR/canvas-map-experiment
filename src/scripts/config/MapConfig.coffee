@@ -12,7 +12,7 @@ MapConfig =
    # Unique identifier for MapBox app
    # @type {String}
 
-   ID: 'damassi.i68ol38a'
+   ID: 'damassi.i6mpgfa0'
 
 
    # Map lands on Seattle during initialization

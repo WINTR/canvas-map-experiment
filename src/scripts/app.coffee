@@ -53,13 +53,13 @@ class App extends View
 
 
 
+
    # Add app-wide event listeners
 
    addEventListeners: ->
       @listenTo @mapView,    MapEvent.INITIALIZED,  @onMapInitialized
       @listenTo @mapView,    MapEvent.ZOOM_CHANGED, @onMapZoomChanged
       @listenTo @mapView,    MapEvent.DRAG,         @onMapDrag
-      #$(window).on          'mousemove',            @onMouseMove
 
 
 

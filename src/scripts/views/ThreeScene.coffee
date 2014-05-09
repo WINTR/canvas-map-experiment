@@ -5,9 +5,10 @@
  * @date   5.8.14
 ###
 
-MapConfig = require '../config/MapConfig.coffee'
-Event     = require '../events/Event.coffee'
-View      = require '../supers/View.coffee'
+WintrGradient = require '../utils/WintrGradient.coffee'
+MapConfig     = require '../config/MapConfig.coffee'
+Event         = require '../events/Event.coffee'
+View          = require '../supers/View.coffee'
 
 
 class ThreeScene extends View
@@ -22,8 +23,6 @@ class ThreeScene extends View
 
    constructor: (options) ->
       super options
-
-      console.log @wage
 
       @setupThreeJSRenderer()
 
@@ -64,7 +63,7 @@ class ThreeScene extends View
 
 
    tick: ->
-      @cube.rotation.y += .1
+      @cube.rotation.y += .1 if @cube
       @renderer.render @scene, @camera
 
 
@@ -78,6 +77,8 @@ class ThreeScene extends View
 
 
    setupThreeJSRenderer: ->
+      height = if @wage.wage isnt 0 then @wage.wage * 3 else 2
+
       cameraAttributes =
          angle: 45
          aspect: MapConfig.CANVAS_SIZE / MapConfig.CANVAS_SIZE
@@ -89,27 +90,74 @@ class ThreeScene extends View
       @camera   = new THREE.PerspectiveCamera cameraAttributes.angle, cameraAttributes.aspect, cameraAttributes.near, cameraAttributes.far
       @renderer = new THREE.CanvasRenderer alpha: true
 
-      # Object parameters
-      height = if @wage.wage isnt 0 then @wage.wage * 3 else 2
-      @geometry = new THREE.BoxGeometry 2, height, 2
 
-      for i in [0..@geometry.faces.length - 1] by +2
-         hex = Math.random() * 0xffffff
-         @geometry.faces[i].color.setHex hex
-         @geometry.faces[i + 1].color.setHex hex
+      @geometry = new THREE.BoxGeometry 2, height, 2, 2, 2, 2
 
+      # material
+      texture  = new THREE.Texture WintrGradient.generate WintrGradient.yellowGreen()
+      texture.needsUpdate = true
 
-      @material = new THREE.MeshBasicMaterial vertexColors: THREE.FaceColors, overdraw: 0.5
-      @cube     = new THREE.Mesh @geometry, @material
+      material = new THREE.MeshBasicMaterial( { map: texture, overdraw: 0.5 } )
+      @cube = new THREE.Mesh( @geometry, material )
+      @cube.rotation.x = 20
+      @cube.rotation.y = 20
+
+      @scene.add @cube
 
       # Update view
       @renderer.setClearColor 0x000000, 0
       @camera.position.z = 50
 
-      @scene.add @cube
 
-      @cube.rotation.x = 20
-      @cube.rotation.y = 20
+
+   generateTexture: (startHex, stopHex) ->
+      size = 512
+      canvas = document.createElement 'canvas'
+      canvas.width = size
+      canvas.height = size
+
+      context = canvas.getContext '2d'
+
+      context.rect 0, 0, size, size
+      gradient = context.createLinearGradient 0, 0, size, size
+      gradient.addColorStop(0, startHex) # light blue
+      gradient.addColorStop(1, stopHex) # dark blue
+      context.fillStyle = gradient
+      context.fill()
+
+      canvas
+
+
+
+   randomColor: ->
+      letters = '0123456789ABCDEF'.split('');
+      color = '#';
+      for i in [0..5]
+         color += letters[Math.floor(Math.random() * 16)]
+
+      color
+
+
+
+
+   returnRandomColorCube: ->
+      # # Object parameters
+      # @geometry = new THREE.BoxGeometry 2, height, 2
+
+      # for i in [0..@geometry.faces.length - 1] by +2
+      #    hex = Math.random() * 0xffffff
+      #    @geometry.faces[i].color.setHex hex
+      #    @geometry.faces[i + 1].color.setHex hex
+
+
+      # @material = new THREE.MeshBasicMaterial vertexColors: THREE.FaceColors, overdraw: 0.5
+      # @cube     = new THREE.Mesh @geometry, @material
+      # @cube.rotation.x = 20
+      # @cube.rotation.y = 20
+      # @scene.add @cube
+
+
+
 
 
 

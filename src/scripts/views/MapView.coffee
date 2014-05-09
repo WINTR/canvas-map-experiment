@@ -65,6 +65,8 @@ class MapView extends View
          .setView    MapConfig.INIT.location, MapConfig.INIT.zoom
          .addControl @mapbox.geocoderControl MapConfig.ID
 
+      $('.leaflet-control-grid').remove()
+
       # Add a canvas overlay and pass in an update method
       L.canvasOverlay()
          .drawing @canvasUpdateMethod
@@ -115,7 +117,7 @@ class MapView extends View
    # Moves the canvas layer into the Leaflet DOM
 
    insertCanvasLayer: ->
-      @$leafletPane = $ "#map > .leaflet-map-pane > .leaflet-objects-pane"
+      @$leafletPane = $ ".leaflet-objects-pane"
       @$canvas.prependTo @$leafletPane
       @$canvas.css 'z-index', 5
 
