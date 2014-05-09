@@ -33,8 +33,8 @@ class App extends View
 
 
 
-   # Kick off the application by instantiating
-   # neccessary views
+
+   # Initialize app by creating a canvas view and a mapview
 
    constructor: (options) ->
       super options
@@ -51,7 +51,9 @@ class App extends View
 
 
 
-   # App-wide event listeners
+
+
+   # Add app-wide event listeners
 
    addEventListeners: ->
       @listenTo @mapView,    MapEvent.INITIALIZED,  @onMapInitialized
@@ -66,10 +68,14 @@ class App extends View
    # --------------------------------------------------------------------------------
 
 
-   # Handler for map initialization events
+
+   # Handler for map initialization events.  Received from the MapView which
+   # kicks off canvas rendering and 3.js instantiation
 
    onMapInitialized: ->
       @canvasView.render()
+
+
 
 
 
@@ -77,7 +83,8 @@ class App extends View
    # @param {Number} zoom The current map zoom
 
    onMapZoomChanged: (zoom) ->
-      @canvasView.updateZoom zoom
+      #@canvasView.updateZoom zoom
+
 
 
 

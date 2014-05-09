@@ -20,8 +20,6 @@ class ThreeScene extends View
 
 
 
-   # Initialize the map layer
-   # @param {Object} options
 
    constructor: (options) ->
       super options
@@ -31,12 +29,7 @@ class ThreeScene extends View
 
 
 
-   # Render the view layer and begin THREE.js ticker
-   # @public
-
    render: ->
-      TweenMax.set @$el, x: @position.x, y: @position.y
-
       size = MapConfig.CANVAS_SIZE
 
       _.defer =>
@@ -47,33 +40,16 @@ class ThreeScene extends View
 
 
 
-   # Render loop ticker for scene
 
    tick: ->
-      #@cube.rotation.x += .1
       @cube.rotation.y += .1
-      #@cube.rotation.y += .1
-
       @renderer.render @scene, @camera
 
 
 
 
 
-   # Render the view layer and begin THREE.js ticker
-   # @public
-
-   updateZoom: (zoom) ->
-      console.log zoom
-
-
-
-
-
-   # Setup the THREE.js scene
-
    setupThreeJSRenderer: ->
-
       cameraAttributes =
          angle: 45
          aspect: MapConfig.CANVAS_SIZE / MapConfig.CANVAS_SIZE

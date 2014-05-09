@@ -21,23 +21,12 @@ class CanvasView extends View
 
 
 
-   # Initialize the map layer
-   # @param {Object} options
 
-   constructor: (options) ->
-      super options
-
-
-
-   # Render the view layer and begin THREE.js ticker
-   # @public
+   # Instantiate Three.js scenes based upon number of datapoints in the JSON
 
    render: ->
       @scenes = (_.range 50).map (scene) ->
          scene = new ThreeScene
-            position:
-               x: ~~(Math.random() * 2000)
-               y: ~~(Math.random() * 2000)
 
       # Append to dom and start ticker
       @scenes.forEach (scene) => @$el.append scene.render().$el
@@ -45,6 +34,11 @@ class CanvasView extends View
 
 
 
+
+
+   # Update the canvas layer whenever there is a zoom action
+   # @param {HTMLDomElement} canvasOverlay
+   # @param {Object} params
 
    update: (canvasOverlay, params) =>
       offset = @$el.offset()
@@ -63,20 +57,15 @@ class CanvasView extends View
 
 
 
-   # Render the view layer and begin THREE.js ticker
-   # @public
-
-   updateZoom: (zoom) ->
-      console.log zoom
-
-
 
 
    # EVENT HANDLERS
    # --------------------------------------------------------------------------------
 
 
-   # Handler for THREE.js requestAnimationFrame event loop
+
+   # Handler for THREE.js requestAnimationFrame event loop.  Updates each
+   # invidividual canvas layer in scenes array
 
    onTick: (event) =>
       @scenes.forEach (scene) -> scene.tick()
@@ -85,10 +74,11 @@ class CanvasView extends View
 
 
 
+   # Render the view layer and begin THREE.js ticker
+   # @public
 
-
-   # PRIVATE METHODS
-   # --------------------------------------------------------------------------------
+   onUpdateZoom: (zoom) ->
+      console.log zoom
 
 
 
