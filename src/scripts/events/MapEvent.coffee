@@ -8,6 +8,10 @@
 
 MapEvent =
 
+   DRAG_START:       'dragstart'
+   DRAG:             'drag'
+   DRAG_END:         'dragend'
+
    # Triggered once the MapBox map is initialized and rendered to the DOM
    # @type {String}
 

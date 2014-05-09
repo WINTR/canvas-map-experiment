@@ -24,7 +24,8 @@ class CanvasView extends View
    # Instantiate Three.js scenes based upon number of datapoints in the JSON
 
    render: ->
-      @scenes = (_.range 50).map (scene) ->
+
+      @scenes = (_.range @wageData.length).map (scene) ->
          scene = new ThreeScene
 
       # Append to dom and start ticker
@@ -39,17 +40,17 @@ class CanvasView extends View
    # @param {Object} params
 
    update: (canvasOverlay, params) =>
-      offset = @$el.offset()
+      {left, top} = @$el.offset()
 
       @wageData.forEach (state, index) =>
-         point = canvasOverlay._map.latLngToContainerPoint [state.latitude, state.longitude]
+         {x, y} = canvasOverlay._map.latLngToContainerPoint [state.latitude, state.longitude]
 
-         if @scenes and index < @wageData.length - 1
-            scene = @scenes[index]
+         if @scenes and index < @wageData.length
+            {$el} = @scenes[index]
 
-            TweenMax.to scene.$el, .6,
-               x: point.x - offset.left - (MapConfig.CANVAS_SIZE * .5)
-               y: point.y - offset.top - (MapConfig.CANVAS_SIZE * .5)
+            TweenMax.to $el, .6,
+               x: x - left - (MapConfig.CANVAS_SIZE * .5)
+               y: y - top  - (MapConfig.CANVAS_SIZE * .5)
                ease: Expo.easeOut
 
 
@@ -76,6 +77,23 @@ class CanvasView extends View
 
    onUpdateZoom: (zoom) ->
       console.log zoom
+
+
+
+
+
+   onMapDrag: ->
+      @scenes.forEach (scene, index) =>
+         scene = @scenes[index]
+
+         {left, top} = scene.$el.offset()
+
+         console.log left, top
+
+
+
+
+
 
 
 

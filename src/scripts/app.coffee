@@ -58,7 +58,8 @@ class App extends View
    addEventListeners: ->
       @listenTo @mapView,    MapEvent.INITIALIZED,  @onMapInitialized
       @listenTo @mapView,    MapEvent.ZOOM_CHANGED, @onMapZoomChanged
-      @listenTo @canvasView, MapEvent.MOVE,         @onMapMove
+      @listenTo @mapView,    MapEvent.DRAG,         @onMapDrag
+      #$(window).on          'mousemove',            @onMouseMove
 
 
 
@@ -83,8 +84,22 @@ class App extends View
    # @param {Number} zoom The current map zoom
 
    onMapZoomChanged: (zoom) ->
-      #@canvasView.updateZoom zoom
 
+
+
+
+
+   onMapDrag: ->
+      @canvasView.onMapDrag()
+
+
+
+
+
+   onMouseMove: (event) =>
+      @canvasView.onMouseMove
+         x: event.clientX
+         y: event.clienY
 
 
 
@@ -92,6 +107,6 @@ class App extends View
 # Kick off App and load external wage data
 
 $ ->
-   $.getJSON 'assets/data/wages.json', (wageData) ->
+   $.getJSON 'assets/data/wages-wa.json', (wageData) ->
       new App
          wageData: wageData

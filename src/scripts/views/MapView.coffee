@@ -78,6 +78,8 @@ class MapView extends View
 
    addEventListeners: ->
       @mapLayer.on MapEvent.ZOOM_CHANGED, @onZoomChanged
+      @mapLayer.on MapEvent.DRAG,         @onMapDrag
+
 
 
 
@@ -92,6 +94,13 @@ class MapView extends View
 
    onZoomChanged: (event) =>
       @trigger MapEvent.ZOOM_CHANGED, @mapLayer.getZoom()
+
+
+
+
+
+   onMapDrag: (event) =>
+      @trigger MapEvent.DRAG
 
 
 
