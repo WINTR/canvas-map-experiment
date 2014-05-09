@@ -20,7 +20,6 @@ class ThreeScene extends View
 
 
 
-
    constructor: (options) ->
       super options
 
