@@ -5,8 +5,9 @@
  * @date   5.8.14
 ###
 
-Event = require '../events/Event.coffee'
-View  = require '../supers/View.coffee'
+MapConfig = require '../config/MapConfig.coffee'
+Event     = require '../events/Event.coffee'
+View      = require '../supers/View.coffee'
 
 
 class ThreeScene extends View
@@ -16,11 +17,6 @@ class ThreeScene extends View
    # @type {String}
 
    className: 'scene'
-
-
-   size:
-      width:  300
-      height: 300
 
 
 
@@ -34,25 +30,33 @@ class ThreeScene extends View
 
 
 
+
    # Render the view layer and begin THREE.js ticker
    # @public
 
    render: ->
       TweenMax.set @$el, x: @position.x, y: @position.y
 
+      size = MapConfig.CANVAS_SIZE
+
       _.defer =>
-         @renderer.setSize @size.width, @size.height
+         @renderer.setSize size, size
          @$el.append @renderer.domElement
 
       @
 
 
 
+   # Render loop ticker for scene
+
    tick: ->
-      @cube.rotation.x += .01
-      @cube.rotation.y += .01
+      #@cube.rotation.x += .1
+      @cube.rotation.y += .1
+      #@cube.rotation.y += .1
 
       @renderer.render @scene, @camera
+
+
 
 
 
@@ -61,7 +65,7 @@ class ThreeScene extends View
 
    updateZoom: (zoom) ->
       console.log zoom
-      #@cube.scale.set zoom, zoom, zoom
+
 
 
 
@@ -72,21 +76,35 @@ class ThreeScene extends View
 
       cameraAttributes =
          angle: 45
-         aspect: @size.width / @size.height
+         aspect: MapConfig.CANVAS_SIZE / MapConfig.CANVAS_SIZE
          near: .1
          far: 1000
 
+      # Scene parameters
       @scene    = new THREE.Scene
       @camera   = new THREE.PerspectiveCamera cameraAttributes.angle, cameraAttributes.aspect, cameraAttributes.near, cameraAttributes.far
       @renderer = new THREE.CanvasRenderer alpha: true
-      @geometry = new THREE.BoxGeometry 10, 10, 10
-      @material = new THREE.MeshBasicMaterial color: 0xFF0000, wireframe: true
+
+      # Object parameters
+      @geometry = new THREE.BoxGeometry 2, 30, 2
+
+      for i in [0..@geometry.faces.length - 1] by +2
+         hex = Math.random() * 0xffffff
+         @geometry.faces[i].color.setHex hex
+         @geometry.faces[i + 1].color.setHex hex
+
+
+      @material = new THREE.MeshBasicMaterial vertexColors: THREE.FaceColors, overdraw: 0.5
       @cube     = new THREE.Mesh @geometry, @material
 
+      # Update view
       @renderer.setClearColor 0x000000, 0
       @camera.position.z = 50
 
       @scene.add @cube
+
+      @cube.rotation.x = 20
+      @cube.rotation.y = 20
 
 
 

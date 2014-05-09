@@ -32,6 +32,7 @@ class App extends View
    wageData: null
 
 
+
    # Kick off the application by instantiating
    # neccessary views
 
@@ -53,8 +54,10 @@ class App extends View
    # App-wide event listeners
 
    addEventListeners: ->
-      @listenTo @mapView, MapEvent.INITIALIZED,  @onMapInitialized
-      @listenTo @mapView, MapEvent.ZOOM_CHANGED, @onMapZoomChanged
+      @listenTo @mapView,    MapEvent.INITIALIZED,  @onMapInitialized
+      @listenTo @mapView,    MapEvent.ZOOM_CHANGED, @onMapZoomChanged
+      @listenTo @canvasView, MapEvent.MOVE,         @onMapMove
+
 
 
 
@@ -77,6 +80,9 @@ class App extends View
       @canvasView.updateZoom zoom
 
 
+
+
+# Kick off App and load external wage data
 
 $ ->
    $.getJSON 'assets/data/wages.json', (wageData) ->

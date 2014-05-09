@@ -20,7 +20,13 @@ MapConfig =
 
    INIT:
       location: [47.65180177401242, -122.34272003173828]
-      zoom: 11
+      zoom: 5
+
+
+   # Width of each individual canvas square
+   # @type {Number}
+
+   CANVAS_SIZE: 300
 
 
 
