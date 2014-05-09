@@ -29,7 +29,7 @@ MapConfig =
 
 
    MAP_OPTIONS:
-      minZoom: 5
+      minZoom: 4
       maxZoom: 9
 
 
