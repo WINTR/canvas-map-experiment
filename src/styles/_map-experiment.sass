@@ -1,3 +1,7 @@
+*
+   user-select: none
+   outline-style: none
+
 body
    margin: 0
    padding: 0
@@ -28,6 +32,9 @@ body
    bottom: 0
    width: 100%
 
+   &:active
+      cursor: default
+
 
 #canvas-layer
    background: transparent //rgba(0,0,0,.2)//
@@ -38,8 +45,10 @@ body
 
    .scene
       position: absolute
+      cursor: default
 
    .stats
+      transform: translate3d(0,0,0)
       width: 55px
       height: 20px
       border-radius: 5px
@@ -55,6 +64,7 @@ body
       font-family: "Franklin Gothic Std Condensed"
       font-size: 12px
       padding-top: 1px
+      cursor: pointer
 
-      span
+      .state
          color: #60a3d7

@@ -90,9 +90,31 @@ class ThreeScene extends View
    onMouseOver: (event) =>
       @$el.parent().append @$stat
 
+      TweenMax.to @$stat, .4,
+         backgroundColor: '#fff'
+         scale: 1.5
+         ease: Expo.easeOut
+
+      TweenMax.to @$stat.find('.wage'), .4,
+         color: '#000'
+
+      # TweenMax.to @$stat.find('.state'), .4,
+      #    color: '#fff'
+
 
 
    onMouseOut: (event) =>
+      TweenMax.to @$stat, .4,
+         backgroundColor: '#333'
+         scale: 1
+         ease: Expo.easeOut
+
+      TweenMax.to @$stat.find('.wage'), .4,
+         color: '#fff'
+
+      TweenMax.to @$stat.find('.state'), .4,
+         color: '#60a3d7'
+         overwrite: 'all'
 
 
 
