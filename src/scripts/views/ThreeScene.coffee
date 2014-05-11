@@ -7,7 +7,6 @@
 
 WintrGradient = require '../utils/WintrGradient.coffee'
 MapConfig     = require '../config/MapConfig.coffee'
-Event         = require '../events/Event.coffee'
 View          = require '../supers/View.coffee'
 template      = require './templates/scene-template.hbs'
 
@@ -20,10 +19,6 @@ class ThreeScene extends View
 
    className: 'scene'
 
-
-
-   events:
-      'click': 'onClick'
 
 
 
@@ -42,36 +37,33 @@ class ThreeScene extends View
       _.defer =>
 
          @renderer.setSize size, size
+
+         # Append three.js canvas
          @$el.append @renderer.domElement
-         @$el.append template
+
+         # Data / stats
+         @$el.parent().append template
+            index: @index
+            state: @wage.state
             wage: "$#{@wage.wage}"
 
-         # Animate in the cube
-         _.delay =>
+         @$stat = @$el.parent().find "#stat-#{@index}"
 
-            time  = 1
-            ease  = Expo.easeInOut
-            delay = Math.random() * 5
-
-            return
-
-            TweenMax.fromTo @cube.scale, time, y: .1,
-               y: 1
-               delay: delay
-               ease: ease
-
-            TweenMax.fromTo @cube.rotation, time, x: 19.4,
-               x: 20
-               delay: delay
-               ease: ease
+         @addEventListeners()
 
       @
 
 
 
+   addEventListeners: ->
+      @$stat.on 'mouseover', @onMouseOver
+      @$stat.on 'mouseout',  @onMouseOut
+
+
+
 
    tick: ->
-      #@cube.rotation.y += .1 if @cube
+      @cube.rotation.y += .01 if @cube
       @renderer.render @scene, @camera
 
 
@@ -95,6 +87,16 @@ class ThreeScene extends View
 
 
 
+   onMouseOver: (event) =>
+      @$el.parent().append @$stat
+
+
+
+   onMouseOut: (event) =>
+
+
+
+
 
 
 
@@ -108,7 +110,7 @@ class ThreeScene extends View
       @height = if @wage.wage isnt 0 then @wage.wage * 3 else 2
 
       cameraAttributes =
-         angle: 75
+         angle: 45
          aspect: MapConfig.CANVAS_SIZE / MapConfig.CANVAS_SIZE
          near: .1
          far: 100
@@ -118,9 +120,7 @@ class ThreeScene extends View
       @camera   = new THREE.PerspectiveCamera cameraAttributes.angle, cameraAttributes.aspect, cameraAttributes.near, cameraAttributes.far
       @renderer = new THREE.CanvasRenderer alpha: true
 
-
       @scene.add @returnRandomColorCube()
-      #@scene.add @returnGradientCube()
 
       # Update view
       @renderer.setClearColor 0x000000, 0
@@ -141,12 +141,12 @@ class ThreeScene extends View
 
 
    randomColor: ->
-      letters = '0123456789ABCDEF'.split('');
-      color = '#';
+      letters = '0123456789ABCDEF'.split ''
+      color = '#'
       for i in [0..5]
          color += letters[Math.floor(Math.random() * 16)]
 
-      color
+      return color
 
 
 
@@ -158,7 +158,6 @@ class ThreeScene extends View
          hex = Math.random() * 0xffffff
          @geometry.faces[i].color.setHex hex
          @geometry.faces[i + 1].color.setHex hex
-
 
       @material = new THREE.MeshBasicMaterial vertexColors: THREE.FaceColors, overdraw: 0.5
       @cube = new THREE.Mesh @geometry, @material

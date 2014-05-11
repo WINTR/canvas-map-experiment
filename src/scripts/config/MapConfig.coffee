@@ -12,7 +12,7 @@ MapConfig =
    # Width of each individual canvas square
    # @type {Number}
 
-   CANVAS_SIZE: 600
+   CANVAS_SIZE: 300
 
    # Unique identifier for MapBox app
    # @type {String}
@@ -25,7 +25,7 @@ MapConfig =
 
    INIT:
       location: [40.09024, -95.712891]
-      zoom: 5
+      zoom: 4
 
 
    MAP_OPTIONS:

@@ -6,7 +6,6 @@
 ###
 
 MapConfig  = require '../config/MapConfig.coffee'
-Event      = require '../events/Event.coffee'
 View       = require '../supers/View.coffee'
 ThreeScene = require './ThreeScene.coffee'
 
@@ -28,6 +27,7 @@ class CanvasView extends View
       # Create scenes
       @scenes = (_.range @wageData.length).map (scene, index) =>
          scene = new ThreeScene
+            index: index
             wage: @wageData[index]
 
       # Append to dom and start ticker
@@ -60,12 +60,16 @@ class CanvasView extends View
          {x, y} = canvasOverlay._map.latLngToContainerPoint [state.latitude, state.longitude]
 
          if @scenes and index < @wageData.length
-            {$el} = @scenes[index]
+            scene  = @scenes[index]
+            $el    = scene.$el
+            $stat = scene.$stat
 
-            TweenMax.to $el, .6,
-               x: x - left - (MapConfig.CANVAS_SIZE * .5)
-               y: y - top  - (MapConfig.CANVAS_SIZE * .5)
-               ease: Expo.easeOut
+            x = x - left - (MapConfig.CANVAS_SIZE * .5)
+            y = y - top  - (MapConfig.CANVAS_SIZE * .5)
+
+            TweenMax.set $el,   x: x, y: y
+            TweenMax.set $stat, x: x, y: y if $stat?.length
+
 
 
 

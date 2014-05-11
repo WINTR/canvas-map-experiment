@@ -6,7 +6,6 @@
 ###
 
 MapConfig  = require '../config/MapConfig.coffee'
-Event      = require '../events/Event.coffee'
 MapEvent   = require '../events/MapEvent.coffee'
 CanvasView = require './CanvasView.coffee'
 View       = require '../supers/View.coffee'
