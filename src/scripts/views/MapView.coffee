@@ -60,6 +60,8 @@ class MapView extends View
    # canvas DOM layer into Leaflet's hiarchy
 
    render: ->
+      @$map = $ '#map'
+
       @mapLayer = @mapbox.map @id, MapConfig.ID, MapConfig.MAP_OPTIONS
          .setView    MapConfig.INIT.location, MapConfig.INIT.zoom
          .addControl @mapbox.geocoderControl MapConfig.ID
@@ -69,6 +71,16 @@ class MapView extends View
          .drawing @canvasUpdateMethod
          .addTo @mapLayer
          .redraw()
+
+      TweenMax.set @$map, autoAlpha: 0
+
+      _.defer =>
+         @mapLayer.setView MapConfig.INIT.location, MapConfig.INIT.zoom + 1
+
+         TweenMax.to @$map, .7,
+            autoAlpha: 1
+            delay: .5
+            ease: Linear.easeNone
 
       @insertCanvasLayer()
       @addEventListeners()

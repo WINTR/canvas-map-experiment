@@ -67,8 +67,8 @@ class CanvasView extends View
             x = x - left - (MapConfig.CANVAS_SIZE * .5)
             y = y - top  - (MapConfig.CANVAS_SIZE * .5)
 
-            TweenMax.set $el,   x: x, y: y
-            TweenMax.set $stat, x: x, y: y if $stat?.length
+            TweenMax.to $el,   .6, x: x, y: y, ease: Expo.easeOut
+            TweenMax.to $stat, .6, x: x, y: y, ease: Expo.easeOut if $stat?.length
 
 
 

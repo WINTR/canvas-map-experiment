@@ -75,6 +75,9 @@ class App extends View
 
    onMapInitialized: ->
       @canvasView.render()
+      _.delay =>
+         @canvasView.updateCameraAngle()
+      , 500
 
 
 

@@ -24,8 +24,9 @@ MapConfig =
    # @type {Array}
 
    INIT:
-      location: [40.09024, -95.712891]
+      location: [41.09024, -95.712891]
       zoom: 4
+
 
 
    MAP_OPTIONS:

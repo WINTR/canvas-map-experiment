@@ -39,18 +39,21 @@ body
 #canvas-layer
    background: transparent //rgba(0,0,0,.2)//
    position: absolute
-   width: 300px
-   height: 300px
+   width: 50px
+   height: 50px
 
 
    .scene
       position: absolute
       cursor: default
+      transform: translate3d(0,0,0)
 
    .stats
-      transform: translate3d(0,0,0)
       width: 55px
-      height: 20px
+      display: block
+      transform: translate3d(0,0,0)
+      position: relative
+      top: 15px
       border-radius: 5px
       box-shadow: 0px 0px 13px 0px rgba(50, 50, 50, 1)
       background: #333
@@ -58,13 +61,17 @@ body
 
       position: absolute
       top: 50%
-      left: 55%
+      left: 170px
       color: white
       z-index: 1000
       font-family: "Franklin Gothic Std Condensed"
       font-size: 12px
-      padding-top: 1px
+      padding: 1px
+      padding-top: 3px
       cursor: pointer
 
       .state
          color: #60a3d7
+
+      span
+         pointer-events: none

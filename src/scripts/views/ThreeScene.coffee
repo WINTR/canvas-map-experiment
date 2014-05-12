@@ -49,6 +49,14 @@ class ThreeScene extends View
 
          @$stat = @$el.parent().find "#stat-#{@index}"
 
+         TweenMax.fromTo @$stat, .8, autoAlpha: 0, scale: 1, top: 100,
+            immediateRender: true
+            top: 140
+            autoAlpha: 1
+            scale: 1
+            ease: Expo.easeOut
+            delay: .7 + Math.random() * .6
+
          @addEventListeners()
 
       @
@@ -82,24 +90,18 @@ class ThreeScene extends View
    # --------------------------------------------------------------------------------
 
 
-   onClick: (event) =>
-      console.log @wage.wage
-
-
 
    onMouseOver: (event) =>
       @$el.parent().append @$stat
 
       TweenMax.to @$stat, .4,
          backgroundColor: '#fff'
-         scale: 1.5
+         scale: 1.3
          ease: Expo.easeOut
 
       TweenMax.to @$stat.find('.wage'), .4,
          color: '#000'
 
-      # TweenMax.to @$stat.find('.state'), .4,
-      #    color: '#fff'
 
 
 
