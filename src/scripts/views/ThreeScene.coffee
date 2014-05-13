@@ -45,7 +45,7 @@ class ThreeScene extends View
          @$el.parent().append template
             index: @index
             state: @wage.state
-            wage: "$#{@wage.wage}"
+            wage: "$#{@wage.wage.toFixed(2)}"
 
          @$stat = @$el.parent().find "#stat-#{@index}"
 
