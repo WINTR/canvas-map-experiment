@@ -53,7 +53,6 @@ class App extends View
 
 
 
-
    # Add app-wide event listeners
 
    addEventListeners: ->
@@ -110,6 +109,7 @@ class App extends View
 # Kick off App and load external wage data
 
 $ ->
-   $.getJSON 'assets/data/wages.json', (wageData) ->
-      new App
-         wageData: wageData
+   cb = new Firebase('https://minimumwage.firebaseio.com')
+
+   cb.once 'value', (wageData) ->
+      new App wageData: wageData.val()
