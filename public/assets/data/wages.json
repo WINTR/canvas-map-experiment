@@ -24,28 +24,28 @@
     "state":"AZ",
     "latitude": 33.7712,
     "longitude": -111.3877,
-    "wage": 7.8,
+    "wage": 7.90,
     "FIELD5":""
   },
   {
     "state":"CA",
     "latitude": 36.1700,
     "longitude": -119.7462,
-    "wage": 8,
+    "wage": 8.00,
     "FIELD5":""
   },
   {
     "state":"CO",
     "latitude": 39.0646,
     "longitude": -105.3272,
-    "wage": 7.78,
+    "wage": 8.00,
     "FIELD5":""
   },
   {
     "state":"CT",
     "latitude": 41.5834,
     "longitude": -72.7622,
-    "wage": 8.25,
+    "wage": 8.70,
     "FIELD5":""
   },
   {
@@ -66,7 +66,7 @@
     "state":"FL",
     "latitude": 27.8333,
     "longitude": -81.7170,
-    "wage": 7.79,
+    "wage": 7.93,
     "FIELD5":""
   },
   {
@@ -129,14 +129,14 @@
     "state":"LA",
     "latitude": 31.1801,
     "longitude": -91.8749,
-    "wage": 0,
+    "wage": 0.00,
     "FIELD5":""
   },
   {
     "state":"MA",
     "latitude": 42.2373,
     "longitude": -71.5314,
-    "wage": 8,
+    "wage": 8.00,
     "FIELD5":""
   },
   {
@@ -150,14 +150,14 @@
     "state":"ME",
     "latitude": 44.6074,
     "longitude": -69.3977,
-    "wage": 7.5,
+    "wage": 7.50,
     "FIELD5":""
   },
   {
     "state":"MI",
     "latitude": 43.3504,
     "longitude": -84.5603,
-    "wage": 7.4,
+    "wage": 7.40,
     "FIELD5":""
   },
   {
@@ -178,14 +178,14 @@
     "state":"MS",
     "latitude": 32.7673,
     "longitude": -89.6812,
-    "wage": 0,
+    "wage": 0.00,
     "FIELD5":""
   },
   {
     "state":"MT",
     "latitude": 46.9048,
     "longitude": -110.3261,
-    "wage": 7.80,
+    "wage": 7.90,
     "FIELD5":""
   },
   {
@@ -220,14 +220,14 @@
     "state":"NJ",
     "latitude": 40.3140,
     "longitude": -74.5089,
-    "wage": 7.25,
+    "wage": 8.25,
     "FIELD5":""
   },
   {
     "state":"NM",
     "latitude": 34.8375,
     "longitude": -106.2371,
-    "wage": 7.5,
+    "wage": 7.50,
     "FIELD5":""
   },
   {
@@ -241,14 +241,14 @@
     "state":"NY",
     "latitude": 42.1497,
     "longitude": -74.9384,
-    "wage": 7.25,
+    "wage": 8.00,
     "FIELD5":""
   },
   {
     "state":"OH",
     "latitude": 40.3736,
     "longitude": -82.7755,
-    "wage": 7.85,
+    "wage": 7.95,
     "FIELD5":""
   },
   {
@@ -262,7 +262,7 @@
     "state":"OR",
     "latitude": 44.5672,
     "longitude": -122.1269,
-    "wage": 8.95,
+    "wage": 9.10,
     "FIELD5":""
   },
   {
@@ -276,14 +276,14 @@
     "state":"RI",
     "latitude": 41.6772,
     "longitude": -71.5101,
-    "wage": 7.75,
+    "wage": 8.00,
     "FIELD5":""
   },
   {
     "state":"SC",
     "latitude": 33.8191,
     "longitude": -80.9066,
-    "wage": 0,
+    "wage": 0.00,
     "FIELD5":""
   },
   {
@@ -297,7 +297,7 @@
     "state":"TN",
     "latitude": 35.7449,
     "longitude": -86.7489,
-    "wage": 0,
+    "wage": 0.00,
     "FIELD5":""
   },
   {
@@ -325,14 +325,14 @@
     "state":"VT",
     "latitude": 44.0407,
     "longitude": -72.7093,
-    "wage": 8.6,
+    "wage": 8.73,
     "FIELD5":""
   },
   {
     "state":"WA",
     "latitude": 47.3917,
     "longitude": -121.5708,
-    "wage": 15.0,
+    "wage": 9.32,
     "FIELD5":""
   },
   {
