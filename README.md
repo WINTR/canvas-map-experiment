@@ -3,6 +3,8 @@ Canvas Map Experiment
 
 Experiment in combining MapBox with a Three.js canvas visualization layer
 
+https://minimumwage.firebaseapp.com/
+
 Project Setup
 -------------
 - Install Node [Node.js Installer](http://nodejs.org/)
