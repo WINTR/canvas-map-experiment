@@ -1,7 +1,7 @@
 Canvas Map Experiment
 =====================
 
-Experiment in combining MapBox with a Canvas visualization layer
+Experiment in combining MapBox with a Three.js canvas visualization layer
 
 Project Setup
 -------------
